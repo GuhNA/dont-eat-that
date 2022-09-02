@@ -7,7 +7,7 @@ public class Fence : MonoBehaviour
     [SerializeField] int life = 4;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite bFence;
-
+    [SerializeField] Zombie zum;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Fence : MonoBehaviour
 
     private void Update()
     {
-        if(life < 3)
+        if (life < 3)
         {
             spriteRenderer.sprite = bFence;
         }
@@ -26,16 +26,6 @@ public class Fence : MonoBehaviour
             Zombie.instance.fenceP.Remove(Zombie.instance.fenceP[0]);
         }
     }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("zombieAttack"))
-        {
-            life--;
-        }
-    }
-
-
 }
+
 
