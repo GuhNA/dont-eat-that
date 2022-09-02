@@ -135,3 +135,4 @@ MonoBehaviour:
   life: 4
   spriteRenderer: {fileID: 0}
   bFence: {fileID: -3404921872668637149, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
+  range: 0.8

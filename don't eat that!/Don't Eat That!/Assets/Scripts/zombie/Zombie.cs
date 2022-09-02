@@ -18,7 +18,8 @@ public class Zombie : MonoBehaviour
     [SerializeField] private List<Transform> FenceP = new List<Transform>();
     private Fence[] fences;
     [SerializeField] private float[] mag;
-    Animator anim;
+    private Animator ZombieAnim;
+    private bool Walk;
 
     public static Zombie instance;
 
@@ -30,6 +31,18 @@ public class Zombie : MonoBehaviour
         set { FenceP = value; }
     }
 
+    public bool walk
+    {
+        get { return Walk; }
+        set { Walk = value; }
+    }
+
+    public Animator zombieAnim
+    {
+        get { return ZombieAnim; }
+        set { ZombieAnim = value; }
+    }
+
     #endregion
 
     private void Awake()
@@ -38,7 +51,7 @@ public class Zombie : MonoBehaviour
 
         sun = GameObject.FindObjectsOfType<sunflora>();
         fences = GameObject.FindObjectsOfType<Fence>();
-        anim = GetComponent<Animator>();
+        ZombieAnim = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
 
     }
@@ -47,6 +60,7 @@ public class Zombie : MonoBehaviour
         mag = new float[fences.Length];
         FenceP = searchDestroy(fences, ref mag);
         FenceP = listSort(mag, fenceP);
+        Walk = true;
     }
 
     private void Update()
@@ -59,40 +73,36 @@ public class Zombie : MonoBehaviour
         {
 
             //Enquanto n tem animacao iddle
-            anim.SetInteger("select", 3);
+            ZombieAnim.SetInteger("select", 3);
             spriteR.sprite = sprite;
         }
     }
 
     void attack(List<Transform> list)
     {
-        if(Vector2.Distance(transform.position, list[0].position) < 0.7)
+        if(Walk)
         {
-            anim.SetInteger("select", 2);
+            transform.position = Vector2.MoveTowards(transform.position, list[0].position, speed * Time.deltaTime);
+
+            ZombieAnim.SetInteger("select", 1);
+        }
+
+        /*if(Mathf.Abs(transform.position.x - list[0].position.x) > Mathf.Abs(transform.position.y - list[0].position.y))
+        {
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, list[0].position.y), speed * Time.deltaTime);
+            if(Mathf.Approximately(transform.position.y, list[0].position.y))
+            {
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
+            }
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, list[0].position , speed * Time.deltaTime);
-            /*if(Mathf.Abs(transform.position.x - list[0].position.x) > Mathf.Abs(transform.position.y - list[0].position.y))
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
+            if (Mathf.Approximately(transform.position.y, list[0].position.y))
             {
                 transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, list[0].position.y), speed * Time.deltaTime);
-                if(Mathf.Approximately(transform.position.y, list[0].position.y))
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
-                }
             }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
-                if (Mathf.Approximately(transform.position.y, list[0].position.y))
-                {
-                    transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, list[0].position.y), speed * Time.deltaTime);
-                }
-            }*/
-
-            anim.SetInteger("select", 1);
-        }
-
+        }*/
     }
     List<Transform> searchDestroy(MonoBehaviour[] script,ref float[] mag)
     {
