@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5520550777012027109}
   - component: {fileID: 5520550777012027108}
   - component: {fileID: 7736428938999948354}
+  - component: {fileID: 3954605586535694109}
   m_Layer: 0
   m_Name: SunnysideWorld_Tileset_V0.1_4
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5520550777012027110}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.265625, y: -1.8278766, z: 105.46791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -119,3 +120,18 @@ PolygonCollider2D:
       - {x: 0.49878663, y: 0.1888833}
       - {x: 0.1883595, y: 0.25164247}
       - {x: 0.0625, y: 0.376642}
+--- !u!114 &3954605586535694109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5520550777012027110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e238312a927b38749ad282e046809475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 4
+  spriteRenderer: {fileID: 0}
+  bFence: {fileID: -3404921872668637149, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}

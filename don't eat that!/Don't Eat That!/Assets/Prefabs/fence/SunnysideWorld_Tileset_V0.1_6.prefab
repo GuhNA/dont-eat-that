@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 120371231051459578}
   - component: {fileID: 120371231051459579}
   - component: {fileID: 2963045809393318146}
+  - component: {fileID: 6852552127639039074}
   m_Layer: 0
   m_Name: SunnysideWorld_Tileset_V0.1_6
   m_TagString: Untagged
@@ -118,3 +119,18 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.19147551}
       - {x: 0.19066858, y: 0.25220287}
       - {x: 0.06197989, y: 0.37681448}
+--- !u!114 &6852552127639039074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120371231051459577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e238312a927b38749ad282e046809475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 4
+  spriteRenderer: {fileID: 0}
+  bFence: {fileID: 55091860023835406, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
