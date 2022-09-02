@@ -8,10 +8,14 @@ public class Zombie : MonoBehaviour
     [SerializeField] private List<Transform> sunPosition = new List<Transform>();
     private sunflora[] sun;
     private float ver;
+    Animator anim;
 
     private void Start()
     {
         sun = GameObject.FindObjectsOfType<sunflora>();
+
+        anim = GetComponent<Animator>();
+
         for (int i = 0; i < sun.Length; i++)
         {
 
@@ -32,12 +36,20 @@ public class Zombie : MonoBehaviour
 
     private void Update()
     {
-        follow();
+        attack();
     }
 
-    void follow()
+    void attack()
     {
-        transform.position = Vector2.MoveTowards(transform.position, sunPosition[pos].position, speed * Time.deltaTime);
+        if(Vector2.Distance(transform.position, sunPosition[pos].position) < 0.5)
+        {
+            anim.SetInteger("select", 2);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, sunPosition[pos].position, speed * Time.deltaTime);
+            anim.SetInteger("select", 1);
+        }
     }
     
 }
