@@ -9,15 +9,20 @@ public class Zombie : MonoBehaviour
     [SerializeField] private int damage;
     [SerializeField] private int speed;
     [SerializeField] private Sprite sprite;
+    [SerializeField] private float radius;
+    [SerializeField] private bool hit;
+
+    float BPosition;
 
 
     [Header("Others")]
     private SpriteRenderer spriteR;
     private List<Transform> sunPosition = new List<Transform>();
     private sunflora[] sun;
-    [SerializeField] private List<Transform> FenceP = new List<Transform>();
-    private Fence[] fences;
-    [SerializeField] private float[] mag;
+    [SerializeField] private List<Fence> fences = new List<Fence>();
+    [SerializeField] LayerMask mask;
+    [SerializeField] private int Pos;
+    private int cont = 0;
     private Animator ZombieAnim;
     private bool Walk;
 
@@ -25,11 +30,6 @@ public class Zombie : MonoBehaviour
 
 
     #region Encapsulamento
-    public List<Transform> fenceP
-    {
-        get { return FenceP; }
-        set { FenceP = value; }
-    }
 
     public bool walk
     {
@@ -43,6 +43,17 @@ public class Zombie : MonoBehaviour
         set { ZombieAnim = value; }
     }
 
+    public float bPosition
+    {
+        get { return BPosition; }
+        set { BPosition = value; }
+    }
+
+    public int pos
+    {
+        get { return Pos; }
+        set { Pos = value; }
+    }
     #endregion
 
     private void Awake()
@@ -50,111 +61,120 @@ public class Zombie : MonoBehaviour
         instance = this;
 
         sun = GameObject.FindObjectsOfType<sunflora>();
-        fences = GameObject.FindObjectsOfType<Fence>();
+        
         ZombieAnim = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
 
     }
     private void Start()
     {
-        mag = new float[fences.Length];
-        FenceP = searchDestroy(fences, ref mag);
-        FenceP = listSort(mag, fenceP);
-        Walk = true;
+       searchDestroy();
     }
 
     private void Update()
     {
-        if(FenceP.Count > 0)
+        direction();
+
+        if(fences.Count > 0)
         {
-            attack(FenceP);
+            attack(mask);
+            moviment(fences);
         }
         else
         {
-
             //Enquanto n tem animacao iddle
             ZombieAnim.SetInteger("select", 3);
             spriteR.sprite = sprite;
         }
     }
 
-    void attack(List<Transform> list)
+    void moviment(List<Fence> script)
     {
-        if(Walk)
+        if (Vector2.Distance(transform.position, script[pos].transform.position) > radius)
         {
-            transform.position = Vector2.MoveTowards(transform.position, list[0].position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, script[pos].transform.position, speed * Time.deltaTime);
 
             ZombieAnim.SetInteger("select", 1);
         }
+        else { }
+        
+    }
 
-        /*if(Mathf.Abs(transform.position.x - list[0].position.x) > Mathf.Abs(transform.position.y - list[0].position.y))
+    public void searchDestroy()
+    {
+        float mag = 0;
+        if (cont < 1)
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, list[0].position.y), speed * Time.deltaTime);
-            if(Mathf.Approximately(transform.position.y, list[0].position.y))
+            cont = GameObject.FindObjectsOfType<Fence>().Length;
+            for (int i = 0; i < cont; i++)
             {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
+                fences.Add(GameObject.FindObjectsOfType<Fence>()[i]);
+                if (i == 0)
+                {
+                    mag = (transform.position - GameObject.FindObjectsOfType<Fence>()[i].transform.position).sqrMagnitude;
+                    Pos = i;
+                }
+                else if (mag > (transform.position - GameObject.FindObjectsOfType<Fence>()[i].transform.position).sqrMagnitude)
+                {
+                    mag = (transform.position - GameObject.FindObjectsOfType<Fence>()[i].transform.position).sqrMagnitude;
+                    Pos = i;
+                }
             }
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(list[0].position.x, transform.position.y), speed * Time.deltaTime);
-            if (Mathf.Approximately(transform.position.y, list[0].position.y))
+            for (int i = 0; i < fences.Count; i++)
             {
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, list[0].position.y), speed * Time.deltaTime);
-            }
-        }*/
-    }
-    List<Transform> searchDestroy(MonoBehaviour[] script,ref float[] mag)
-    {
-        List<Transform> ret = new List<Transform>();
-
-        for (int i = 0; i < script.Length; i++)
-        {
-            ret.Add(script[i].GetComponent<Transform>());
-            mag[i] = (transform.position - script[i].GetComponent<Transform>().position).sqrMagnitude;
-        }
-        return (ret);
-    }
-
-
-    public void insertionSort (float[] mag)
-    {
-        int i, j;
-        float key;
-        for (i = 1; i < mag.Length; i++)
-        {
-            key = mag[i];
-            j = i - 1;
-            while (j >= 0 && mag[j] > key)
-            {
-                mag[j + 1] = mag[j];
-                j = j - 1;
-            }
-            mag[j + 1] = key;
-        }
-
-    }
-
-     List<Transform> listSort(float[] mag, List<Transform> ret)
-    {
-
-        insertionSort(mag);
-        Transform temp;
-        for (int i = 0; i < mag.Length; i++)
-        {
-            for (int j = 0; j < mag.Length; j++)
-            {
-                if (mag[i] == (transform.position - ret[j].GetComponent<Transform>().position).sqrMagnitude)
+                if (i == 0)
                 {
-                    temp = ret[i];
-                    ret[i] = ret[j];
-                    ret[j] = temp;
-                    break;
+                    mag = (transform.position - fences[i].transform.position).sqrMagnitude;
+                    Pos = i;
+                }
+                else if (mag > (transform.position - fences[i].transform.position).sqrMagnitude)
+                {
+                    mag = (transform.position - fences[i].transform.position).sqrMagnitude;
+                    Pos = i;
                 }
             }
         }
+        bPosition = fences[pos].transform.position.x;
+    }
+    void direction()
+    {
+        if (transform.position.x < bPosition)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+        }
+        if (transform.position.x > bPosition)
+        {
+            transform.eulerAngles = new Vector2(0, 180);
+        }
+    }
 
-        return (ret);
+    public void attack(LayerMask obj /*, LayerMask obj2*/)
+    {
+        Collider2D hitFence = Physics2D.OverlapCircle(transform.position, radius, obj);
+        //Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, radius, obj2);
+        if (hitFence)
+        {
+            zombieAnim.SetInteger("select", 2);
+
+            if (hit)
+            {
+                fences[pos].Life -= Time.deltaTime;
+            }
+        }
+        if(fences[pos] == null)
+        {
+            fences.Remove(fences[pos]);
+            searchDestroy();
+        }
+
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 
 }

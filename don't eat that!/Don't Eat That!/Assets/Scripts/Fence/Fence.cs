@@ -4,26 +4,40 @@ using UnityEngine;
 
 public class Fence : MonoBehaviour
 {
-    [SerializeField] int life = 4;
+    [SerializeField] float life = 1;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite bFence;
-    [SerializeField] Zombie zum;
+    private bool destroyed = false;
+
+    public float Life
+    {
+        get { return life; }
+        set { life = value; }
+    }
+
+    public bool Destroyed
+    {
+        get { return destroyed; }
+        set { destroyed = value; }
+    }
+
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+
     private void Update()
     {
-        if (life < 3)
+        if (life < 1)
         {
             spriteRenderer.sprite = bFence;
         }
-        if (life == 0)
+        if (life <= 0)
         {
+            //destroyed = true;
             Destroy(gameObject);
-            Zombie.instance.fenceP.Remove(Zombie.instance.fenceP[0]);
         }
     }
 }

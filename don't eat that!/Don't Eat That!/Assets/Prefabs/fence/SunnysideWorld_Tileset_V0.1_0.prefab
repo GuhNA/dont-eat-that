@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2910412948995918523}
   - component: {fileID: 2910412948995918500}
   - component: {fileID: 1246291890164248798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,4 +134,3 @@ MonoBehaviour:
   life: 4
   spriteRenderer: {fileID: 0}
   bFence: {fileID: 349154779361553972, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
-  range: 0.8

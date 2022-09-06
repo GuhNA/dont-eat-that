@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7103572970529263739}
   - component: {fileID: 7137605150662427659}
   - component: {fileID: 3019197208407844197}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,8 +134,3 @@ MonoBehaviour:
   life: 4
   spriteRenderer: {fileID: 0}
   bFence: {fileID: -8738792340364118618, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
-  range: 0.5
-  zum: {fileID: 0}
-  zombieMask:
-    serializedVersion: 2
-    m_Bits: 128

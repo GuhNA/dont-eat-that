@@ -269,7 +269,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133091568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -6.83, y: -3.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1474555634}
@@ -2065,13 +2065,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 3428051574208630582, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_11 (5)
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163549, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_RootOrder
@@ -2230,11 +2234,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6 (7)
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_RootOrder
@@ -2279,6 +2283,10 @@ PrefabInstance:
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852552127639039074, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
+      propertyPath: life
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
@@ -4156,6 +4164,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 1725553318498623533, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073677, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -4202,11 +4214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073678, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6 (3)
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073678, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
@@ -30005,7 +30017,6 @@ Transform:
   - {fileID: 782280331}
   - {fileID: 363234080}
   - {fileID: 1034808577}
-  - {fileID: 1929463908}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31395,6 +31406,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1113264052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113264053}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1113264053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113264052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.33, y: -8.98, z: -14.4737215}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182727993
 GameObject:
   m_ObjectHideFlags: 0
@@ -31511,11 +31552,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6 (2)
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_RootOrder
@@ -31560,6 +31601,10 @@ PrefabInstance:
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6852552127639039074, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
+      propertyPath: life
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
@@ -31779,13 +31824,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 542902076, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 762793889792666501, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_3 (1)
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 762793889792666501, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 762793889792666502, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_RootOrder
@@ -31833,36 +31882,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
---- !u!1 &1929463907
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1929463908}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1929463908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1929463907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 8.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 987643862}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2016066449
 GameObject:
   m_ObjectHideFlags: 0
@@ -31906,13 +31925,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 1246291890164248798, guid: ececdb0036002d648a32115cbec03661, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918521, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918521, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918522, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_RootOrder
@@ -32012,13 +32035,17 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.50024354
       objectReference: {fileID: 0}
+    - target: {fileID: 3428051574208630582, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_11 (4)
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163549, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_RootOrder
@@ -32195,11 +32222,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6 (8)
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_RootOrder
@@ -32245,6 +32272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6852552127639039074, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
 --- !u!4 &120371230821286293 stripped
@@ -32261,11 +32292,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459577, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120371231051459578, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
       propertyPath: m_RootOrder
@@ -32311,6 +32342,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6852552127639039074, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 906bcf6139ef2174691b6568f132a0a4, type: 3}
 --- !u!1001 &741934601384422334
@@ -32320,17 +32355,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 133091569}
     m_Modifications:
+    - target: {fileID: 741934600644003145, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600644003145, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600644003147, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600644003147, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: mask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 741934600644003148, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 741934600644003148, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.39
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 741934600644003148, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 8.45
       objectReference: {fileID: 0}
     - target: {fileID: 741934600644003148, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32368,6 +32419,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: zombie
       objectReference: {fileID: 0}
+    - target: {fileID: 741934600688558305, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_Radius
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600688558305, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600688558305, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 741934600688558305, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 040ab42aaa62582419ee009c2240f4e8, type: 3}
 --- !u!1001 &762793889775616716
@@ -32377,13 +32444,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 542902076, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 762793889792666501, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_3
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 762793889792666501, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 762793889792666502, guid: b9e7e0773595a2445bf5eb8acb489bf8, type: 3}
       propertyPath: m_RootOrder
@@ -32438,13 +32509,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 1246291890164248798, guid: ececdb0036002d648a32115cbec03661, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918521, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_0
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918521, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2910412948995918522, guid: ececdb0036002d648a32115cbec03661, type: 3}
       propertyPath: m_RootOrder
@@ -32499,6 +32574,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 1725553318498623533, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073677, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -32545,11 +32624,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073678, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_6 (1)
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5021453947692073678, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9dd46c92d0ec1304c8cb8759b327cfa7, type: 3}
@@ -32560,6 +32639,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 3954605586535694109, guid: d7e01cdb15e33fb4faf8006765b1e1fa, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5520550777012027109, guid: d7e01cdb15e33fb4faf8006765b1e1fa, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -32606,11 +32689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5520550777012027110, guid: d7e01cdb15e33fb4faf8006765b1e1fa, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5520550777012027110, guid: d7e01cdb15e33fb4faf8006765b1e1fa, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7e01cdb15e33fb4faf8006765b1e1fa, type: 3}
@@ -32661,13 +32744,17 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.50024354
       objectReference: {fileID: 0}
+    - target: {fileID: 3428051574208630582, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_11 (1)
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163549, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_RootOrder
@@ -32762,13 +32849,17 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[8].y
       value: 0.50024354
       objectReference: {fileID: 0}
+    - target: {fileID: 3428051574208630582, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_11 (2)
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163538, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6423680957046163549, guid: 34c7558aec41e494fbf7abe33cc63fcb, type: 3}
       propertyPath: m_RootOrder
@@ -32823,9 +32914,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1270130094}
     m_Modifications:
+    - target: {fileID: 3019197208407844197, guid: 001c4af11e3b57642a5c7702d928262e, type: 3}
+      propertyPath: life
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7103572970529263717, guid: 001c4af11e3b57642a5c7702d928262e, type: 3}
       propertyPath: m_Name
-      value: SunnysideWorld_Tileset_V0.1_1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103572970529263717, guid: 001c4af11e3b57642a5c7702d928262e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7103572970529263738, guid: 001c4af11e3b57642a5c7702d928262e, type: 3}
       propertyPath: m_RootOrder
