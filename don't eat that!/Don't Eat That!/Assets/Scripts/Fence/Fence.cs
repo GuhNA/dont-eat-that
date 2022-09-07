@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Fence : MonoBehaviour
 {
-    [SerializeField] float life = 1;
+    [SerializeField] float life;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite bFence;
-    private bool destroyed = false;
+    NavMeshModifier mod;
+
+    public static Fence instance;
 
     public float Life
     {
@@ -15,28 +18,33 @@ public class Fence : MonoBehaviour
         set { life = value; }
     }
 
-    public bool Destroyed
+    public NavMeshModifier Mod
     {
-        get { return destroyed; }
-        set { destroyed = value; }
+        get { return mod; }
+        set { mod = value; }
     }
 
 
     private void Awake()
     {
+        instance = this;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        mod = GetComponent<NavMeshModifier>();
     }
 
+    private void Start()
+    {
+
+    }
 
     private void Update()
     {
-        if (life < 1)
+        if (life < life/4)
         {
             spriteRenderer.sprite = bFence;
         }
-        if (life <= 0)
+        if(life <= 0)
         {
-            //destroyed = true;
             Destroy(gameObject);
         }
     }

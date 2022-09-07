@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Zombie : MonoBehaviour
-{
+{ /*
     [Header("Attributes")]
     [SerializeField] private int life;
     [SerializeField] private int damage;
@@ -151,7 +151,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public void attack(LayerMask obj /*, LayerMask obj2*/)
+    public void attack(LayerMask obj /*, LayerMask obj2)
     {
         Collider2D hitFence = Physics2D.OverlapCircle(transform.position, radius, obj);
         //Collider2D hitPlayer = Physics2D.OverlapCircle(transform.position, radius, obj2);
@@ -176,5 +176,5 @@ public class Zombie : MonoBehaviour
     {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
-
+    */
 }
