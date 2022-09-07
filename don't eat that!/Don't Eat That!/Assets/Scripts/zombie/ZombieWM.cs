@@ -14,12 +14,16 @@ public class ZombieWM : MonoBehaviour
     [SerializeField] private NavMeshSurface2d surf;
     [SerializeField] List<Fence> fences = new List<Fence>();
     [SerializeField] List<Sunflora> sum = new List<Sunflora>();
+    [SerializeField] bool dmg = false;
     private Animator anim;
     int cont;
-    int pos;
-    bool dmg = false;
+    int cont2;
+    [Header("position change")]
+    [SerializeField] int pos;
+    [SerializeField] int pos2;
     bool mov;
     bool once;
+    bool onceA;
     bool end;
     [SerializeField]LayerMask playerMask;
 
@@ -33,6 +37,7 @@ public class ZombieWM : MonoBehaviour
         end = true;
         once = false;
         searchDestroy();
+        searchSunflora();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
@@ -47,7 +52,7 @@ public class ZombieWM : MonoBehaviour
                 anim.SetInteger("select", 1);
             }
 
-            if (fences.Count > cont - 3)
+            if (fences.Count > cont - 4)
             {
                 if (fences[pos] == null)
                 {
@@ -59,32 +64,38 @@ public class ZombieWM : MonoBehaviour
             }
             else
             {
-                //ativando as fences como obstaculos
-                Fence.instance.Mod.overrideArea = true;
-
-                //rebuildando a NavMesh "bake"
-                surf.BuildNavMesh();
-
+               
                 if (!once)
-                {
-                    searchSunflora();
+                {  
+                    //ativando as fences como obstaculos
+                    for (int i = 0; i < fences.Count; i++)
+                    {
+                        fences[i].Mod.overrideArea = true;
+                    }
+                    //rebuildando a NavMesh "bake"
+                    surf.BuildNavMesh();
+
                     once = true;
                 }
 
-                if (sum[pos] == null)
+                Debug.Log("pos: " + sum[pos2]);
+                if (sum[pos2] == null)
                 {
-                    sum.Remove(sum[pos]);
+                    Debug.Log("entrei");
+                    sum.Remove(sum[pos2]);
                     searchSunflora();
                 }
-                agent.SetDestination(sum[pos].transform.position);
 
-                if(sum.Count >=0)
+                if (sum.Count <=0)
                 {
                     end = false;
                 }
+
+                agent.SetDestination(sum[pos2].transform.position);
             }
             direction();
             damage();
+
         }
         else
         {
@@ -135,21 +146,21 @@ public class ZombieWM : MonoBehaviour
     void searchSunflora()
     {
         float mag = 0;
-        if (cont < 1)
+        if (sum.Count < 1)
         {
-            cont = GameObject.FindObjectsOfType<Sunflora>().Length;
-            for (int i = 0; i < cont; i++)
+            cont2 = GameObject.FindObjectsOfType<Sunflora>().Length;
+            for (int i = 0; i < cont2; i++)
             {
                 sum.Add(GameObject.FindObjectsOfType<Sunflora>()[i]);
                 if (i == 0)
                 {
                     mag = (transform.position - GameObject.FindObjectsOfType<Sunflora>()[i].transform.position).sqrMagnitude;
-                    pos = i;
+                    pos2 = i;
                 }
                 else if (mag > (transform.position - GameObject.FindObjectsOfType<Sunflora>()[i].transform.position).sqrMagnitude)
                 {
                     mag = (transform.position - GameObject.FindObjectsOfType<Sunflora>()[i].transform.position).sqrMagnitude;
-                    pos = i;
+                    pos2 = i;
                 }
             }
         }
@@ -160,12 +171,12 @@ public class ZombieWM : MonoBehaviour
                 if (i == 0)
                 {
                     mag = (transform.position - sum[i].transform.position).sqrMagnitude;
-                    pos = i;
+                    pos2 = i;
                 }
                 else if (mag > (transform.position - sum[i].transform.position).sqrMagnitude)
                 {
                     mag = (transform.position - sum[i].transform.position).sqrMagnitude;
-                    pos = i;
+                    pos2 = i;
                 }
             }
         }
@@ -175,7 +186,7 @@ public class ZombieWM : MonoBehaviour
 
     void direction()
     {
-        if (fences.Count > cont - 3)
+        if (fences.Count > cont - 4)
         {
             if (transform.position.x < fences[pos].transform.position.x)
             {
@@ -188,11 +199,11 @@ public class ZombieWM : MonoBehaviour
         }
         else
         {
-            if (transform.position.x < sum[pos].transform.position.x)
+            if (transform.position.x < sum[pos2].transform.position.x)
             {
                 transform.eulerAngles = new Vector2(0, 0);
             }
-            if (transform.position.x > sum[pos].transform.position.x)
+            if (transform.position.x > sum[pos2].transform.position.x)
             {
                 transform.eulerAngles = new Vector2(0, 180);
             }
@@ -201,14 +212,13 @@ public class ZombieWM : MonoBehaviour
 
     void damage()
     {
-        if (fences.Count > cont - 3)
+        if (fences.Count > cont - 4)
         {
             if (agent.stoppingDistance >= Vector2.Distance(fences[pos].transform.position, transform.position))
             {
                 mov = false;
                 anim.SetInteger("select", 2);
             }
-
             if (dmg)
             {
                 fences[pos].Life -= Time.deltaTime;
@@ -216,15 +226,18 @@ public class ZombieWM : MonoBehaviour
         }
         else
         {
-            if (agent.stoppingDistance >= Vector2.Distance(sum[pos].transform.position, transform.position))
+            if (agent.stoppingDistance >= Vector2.Distance(sum[pos2].transform.position, transform.position))
             {
                 mov = false;
                 anim.SetInteger("select", 2);
             }
-
             if (dmg)
             {
-                sum[pos].Life -= Time.deltaTime;
+                sum[pos2].Life -= Time.deltaTime;
+                if(sum[pos2].Life > 0)
+                {
+                    sum[pos2].Anim.SetTrigger("dmg");
+                }
             }
         }
     }

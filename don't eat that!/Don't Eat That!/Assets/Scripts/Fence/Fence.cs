@@ -8,7 +8,8 @@ public class Fence : MonoBehaviour
     [SerializeField] float life;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Sprite bFence;
-    NavMeshModifier mod;
+    [SerializeField] NavMeshModifier mod;
+    float iniLife;
 
     public static Fence instance;
 
@@ -24,6 +25,10 @@ public class Fence : MonoBehaviour
         set { mod = value; }
     }
 
+    private void Start()
+    {
+        iniLife = life;
+    }
 
     private void Awake()
     {
@@ -32,14 +37,9 @@ public class Fence : MonoBehaviour
         mod = GetComponent<NavMeshModifier>();
     }
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
-        if (life < life/4)
+        if (life <= (iniLife/3))
         {
             spriteRenderer.sprite = bFence;
         }
