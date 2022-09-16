@@ -6,9 +6,10 @@ using UnityEngine.AI;
 public class Fence : MonoBehaviour
 {
     [SerializeField] float life;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    SpriteRenderer spriteRenderer;
     [SerializeField] Sprite bFence;
-    [SerializeField] NavMeshModifier mod;
+    NavMeshModifier mod;
+    [SerializeField] GameController controller;
     float iniLife;
 
     public static Fence instance;
@@ -45,6 +46,7 @@ public class Fence : MonoBehaviour
         }
         if(life <= 0)
         {
+            controller.fences.Remove(this);
             Destroy(gameObject);
         }
     }

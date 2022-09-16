@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5520550777012027108}
   - component: {fileID: 7736428938999948354}
   - component: {fileID: 3954605586535694109}
+  - component: {fileID: 2037923007}
   m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_4
   m_TagString: Untagged
@@ -132,6 +133,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e238312a927b38749ad282e046809475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 4
+  life: 0.5
   spriteRenderer: {fileID: 0}
   bFence: {fileID: -3404921872668637149, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
+  mod: {fileID: 0}
+  controller: {fileID: 0}
+--- !u!114 &2037923007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5520550777012027110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff

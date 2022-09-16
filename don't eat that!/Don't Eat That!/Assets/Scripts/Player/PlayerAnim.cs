@@ -18,6 +18,7 @@ public class PlayerAnim : MonoBehaviour
     {
         OnMove();
         OnRun();
+        OnAttack();
     }
 
     void OnMove()
@@ -53,6 +54,14 @@ public class PlayerAnim : MonoBehaviour
         if (player.isRunning)
         {
             animator.SetInteger("action", 2);
+        }
+    }
+
+    void OnAttack()
+    {
+        if(player.isAttacking)
+        {
+            animator.SetInteger("action", 3);
         }
     }
 
