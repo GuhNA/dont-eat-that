@@ -9,6 +9,7 @@ public class Sunflora : MonoBehaviour
     float iniLife;
     [SerializeField] bool died;
     bool once;
+    [SerializeField] GameController controller;
 
 
     #region encapsulamento
@@ -42,7 +43,6 @@ public class Sunflora : MonoBehaviour
         if (life <= 0)
         {
             teste();
-            //anim.SetInteger("select",3);
             anim.SetTrigger("die");
 
         }
@@ -56,6 +56,7 @@ public class Sunflora : MonoBehaviour
         }
         if (died)
         {
+            controller.sunfloras.Remove(this);
             Destroy(gameObject);
         }
 
@@ -65,7 +66,6 @@ public class Sunflora : MonoBehaviour
     {
         if (once)
         {
-            Debug.Log("a");
             anim.SetTrigger("die");
             once = false;
         }
