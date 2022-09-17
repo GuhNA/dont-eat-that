@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6423680957046163548}
   - component: {fileID: 2456376252390214304}
   - component: {fileID: 3428051574208630582}
+  - component: {fileID: 732835401}
   - component: {fileID: 1716651037}
   m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_11 (1)
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6423680957046163538}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.263625, y: -4.8338766, z: 105.46791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 6831354082765256808, guid: aed80f1551aae7e4d9c4de7ec6ddbe2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -132,8 +133,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0.5
+  spriteRenderer: {fileID: 0}
   bFence: {fileID: -2533138169481940217, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
+  mod: {fileID: 0}
   controller: {fileID: 0}
+--- !u!114 &732835401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423680957046163538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!114 &1716651037
 MonoBehaviour:
   m_ObjectHideFlags: 0

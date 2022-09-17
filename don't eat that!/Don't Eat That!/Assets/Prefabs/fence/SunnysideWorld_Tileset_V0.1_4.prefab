@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5520550777012027109}
   - component: {fileID: 5520550777012027108}
   - component: {fileID: 7736428938999948354}
-  - component: {fileID: -8051583358382834125}
-  - component: {fileID: 2140816948550464203}
-  m_Layer: 0
+  - component: {fileID: 3954605586535694109}
+  - component: {fileID: 2037923007}
+  m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5520550777012027110}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.265625, y: -1.8278766, z: 105.46791}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -6347962645321781943, guid: aed80f1551aae7e4d9c4de7ec6ddbe2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +121,7 @@ PolygonCollider2D:
       - {x: 0.49878663, y: 0.1888833}
       - {x: 0.1883595, y: 0.25164247}
       - {x: 0.0625, y: 0.376642}
---- !u!114 &-8051583358382834125
+--- !u!114 &3954605586535694109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +134,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0.5
+  spriteRenderer: {fileID: 0}
   bFence: {fileID: -3404921872668637149, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
+  mod: {fileID: 0}
   controller: {fileID: 0}
---- !u!114 &2140816948550464203
+--- !u!114 &2037923007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,6 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideArea: 0
-  m_Area: 0
+  m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
