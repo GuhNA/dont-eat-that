@@ -6,6 +6,10 @@ public class Sunflora : MonoBehaviour
 {
     [SerializeField] float life;
     [SerializeField] Animator anim;
+    float iniLife;
+    [SerializeField] bool died;
+    bool once;
+    [SerializeField] GameController controller;
 
 
     #region encapsulamento
@@ -13,6 +17,12 @@ public class Sunflora : MonoBehaviour
     {
         get { return life; }
         set { life = value; }
+    }
+
+    public Animator Anim
+    {
+        get { return anim; }
+        set { anim = value; }
     }
     #endregion
 
@@ -23,24 +33,41 @@ public class Sunflora : MonoBehaviour
 
     private void Start()
     {
-
+        iniLife = life;
+        once = true;
     }
 
     private void Update()
     {
-        float timer = 0.8f;
-        if(life < life/2)
+
+        if (life <= 0)
         {
-            anim.SetBool("broking", true);
+            teste();
+            anim.SetTrigger("die");
+
         }
-        if(life >= 0)
+        else if (life > iniLife / 2)
         {
-            anim.SetTrigger("broke");
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                Destroy(gameObject);
-            }
+            anim.SetInteger("select", 0);
+        }
+        else if (life < iniLife / 2 && life > 0)
+        {
+            anim.SetInteger("select", 1);
+        }
+        if (died)
+        {
+            controller.sunfloras.Remove(this);
+            Destroy(gameObject);
+        }
+
+    }
+
+    void teste()
+    {
+        if (once)
+        {
+            anim.SetTrigger("die");
+            once = false;
         }
     }
 }
