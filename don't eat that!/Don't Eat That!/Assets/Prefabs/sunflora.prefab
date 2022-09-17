@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 572025315278476318}
   - component: {fileID: 572025315278476304}
   - component: {fileID: 572025315278476319}
-  - component: {fileID: 572025315278476305}
+  - component: {fileID: 4429806598321078819}
   m_Layer: 0
   m_Name: sunflora
   m_TagString: Plant
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &572025315278476305
+--- !u!114 &4429806598321078819
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 572025315278476317}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 850d65848dde2b648b2d678c8d4fe972, type: 3}
+  m_Script: {fileID: 11500000, guid: fd3e97cad372f7646a21f80a7f34eb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
-  anim: {fileID: 572025315278476319}
+  life: 0
   died: 0
   controller: {fileID: 0}

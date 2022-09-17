@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sunflora : MonoBehaviour
 {
     [SerializeField] float life;
-    [SerializeField] Animator anim;
+    Animator anim;
     float iniLife;
     [SerializeField] bool died;
     bool once;

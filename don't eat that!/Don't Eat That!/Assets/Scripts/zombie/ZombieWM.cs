@@ -143,7 +143,6 @@ public class ZombieWM : MonoBehaviour
         {
             if (agent.stoppingDistance >= Vector2.Distance(controller.fences[pos].transform.position, transform.position))
             {
-                agent.speed = 0;
                 anim.SetInteger("select", 2);
             }
             if (dmg)
@@ -155,7 +154,6 @@ public class ZombieWM : MonoBehaviour
         {
             if (agent.stoppingDistance >= Vector2.Distance(controller.sunfloras[pos2].transform.position, transform.position))
             {
-                agent.speed = 0;
                 anim.SetInteger("select", 2);
             }
             if (dmg)
