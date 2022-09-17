@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 6423680957046163549}
   - component: {fileID: 6423680957046163548}
   - component: {fileID: 2456376252390214304}
-  m_Layer: 0
+  - component: {fileID: 3428051574208630582}
+  - component: {fileID: 732835401}
+  - component: {fileID: 1716651037}
+  m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_11 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +115,57 @@ PolygonCollider2D:
       - {x: -0.18813372, y: 0.2497887}
       - {x: -0.18857145, y: -0.18876824}
       - {x: -0.12587023, y: -0.49918336}
+      - {x: -0.034050465, y: -0.4990722}
       - {x: 0.12619925, y: -0.49887818}
       - {x: 0.18857145, y: -0.1882143}
       - {x: 0.18857145, y: 0.24730319}
       - {x: 0.12621784, y: 0.50024354}
+--- !u!114 &3428051574208630582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423680957046163538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e238312a927b38749ad282e046809475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 0.5
+  spriteRenderer: {fileID: 0}
+  bFence: {fileID: -2533138169481940217, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
+  mod: {fileID: 0}
+  controller: {fileID: 0}
+--- !u!114 &732835401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423680957046163538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &1716651037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423680957046163538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
