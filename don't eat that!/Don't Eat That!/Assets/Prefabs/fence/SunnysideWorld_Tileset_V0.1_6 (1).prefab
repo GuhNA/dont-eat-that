@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7861797634188365877}
   - component: {fileID: 1725553318498623533}
   - component: {fileID: 2882542021302693143}
-  - component: {fileID: 1103923280}
   m_Layer: 8
   m_Name: SunnysideWorld_Tileset_V0.1_6 (1)
   m_TagString: Untagged
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 416047863630588849, guid: aed80f1551aae7e4d9c4de7ec6ddbe2c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,27 +133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 0.5
-  spriteRenderer: {fileID: 0}
   bFence: {fileID: -2798202165467619968, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
-  mod: {fileID: 0}
   controller: {fileID: 0}
 --- !u!114 &2882542021302693143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5021453947692073678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 0
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!114 &1103923280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
