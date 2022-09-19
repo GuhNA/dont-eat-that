@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,6 +21,12 @@ public class Player : MonoBehaviour
     //[SerializeField] private GameObject shotPosition;
     //[SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask enemyLayer;
+
+    private bool isPaused;
+
+    //Paineis e Menu
+    public GameObject pausePanel;
+    public string cena = "MenuManager";
 
     #region encapsulamento
     public Vector2 direction
@@ -52,16 +59,45 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         handlingOBJ = 1;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Running();
-        Rolling();
-        onInput();
-        Axe();
+        if (!isPaused){
+            Running();
+            Rolling();
+            onInput();
+            Axe();
+        }
+        
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseScreen();
+        }
+
+    }
+
+    void PauseScreen()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void FixedUpdate()

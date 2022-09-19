@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     public int totalF;
     bool _once;
     bool _end;
+    
 
     #region Encapsulamento
     public List<Fence> fences
@@ -72,6 +73,9 @@ public class GameController : MonoBehaviour
         }
         else
         {*/
+
+        
+
         if(fences_.Count <= (totalF - surfEvent))
         {
             if (!once)
@@ -103,6 +107,7 @@ public class GameController : MonoBehaviour
         //}
     }
 
+    
 
     void SetFences()
     {
