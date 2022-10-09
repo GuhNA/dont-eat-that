@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1408690991931547367}
-  - component: {fileID: 1803901085128027421}
   - component: {fileID: 5360072045665983213}
   m_Layer: 0
   m_Name: pedra
@@ -32,37 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1803901085128027421
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 979815970723902036}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.37598896, y: -0.11506653}
-  - {x: 0.25233936, y: -0.24512959}
-  - {x: -0.1847868, y: -0.2463007}
-  - {x: -0.37498474, y: -0.05777836}
-  - {x: -0.37497997, y: 0.05726242}
-  - {x: -0.30127525, y: 0.1321907}
-  - {x: -0.18072224, y: 0.25532913}
-  - {x: -0.11355114, y: 0.31343746}
-  - {x: 0.18177891, y: 0.32664013}
-  - {x: 0.3717637, y: 0.054545403}
-  - {x: 0.38493443, y: -0.10393047}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &5360072045665983213
 SpriteRenderer:
   m_ObjectHideFlags: 0

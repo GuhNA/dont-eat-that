@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
-     [SerializeField] private string cena;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +21,22 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(cena);
+        SceneManager.LoadScene("MainSceneGame");
     }
 
     public void QuitGame()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
-        //Aplication.Quit();
+        Application.Quit();
     }
 
-    
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 
 }

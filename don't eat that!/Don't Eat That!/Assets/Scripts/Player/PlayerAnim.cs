@@ -29,10 +29,15 @@ public class PlayerAnim : MonoBehaviour
             {
                 animator.SetTrigger("roll");
             }
+            else if(player.handlingOBJ == 2)
+            {
+                animator.SetInteger("action", 4);
+            }
             else
             {
                 animator.SetInteger("action", 1);
             }
+
         }
         else
         {
@@ -64,6 +69,4 @@ public class PlayerAnim : MonoBehaviour
             animator.SetInteger("action", 3);
         }
     }
-
-
 }

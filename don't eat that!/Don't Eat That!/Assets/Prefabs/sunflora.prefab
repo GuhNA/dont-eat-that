@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494aa9bac08760a4f91ad1d22cbb1281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
+  life: 4
   anim: {fileID: 0}
   died: 0
   controller: {fileID: 0}

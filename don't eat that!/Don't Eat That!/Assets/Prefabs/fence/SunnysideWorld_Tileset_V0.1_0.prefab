@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e238312a927b38749ad282e046809475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0.5
+  life: 3
   bFence: {fileID: 349154779361553972, guid: f7cb5484326186e4595ab1fe4c8af3f5, type: 3}
   controller: {fileID: 0}
 --- !u!114 &1196499157

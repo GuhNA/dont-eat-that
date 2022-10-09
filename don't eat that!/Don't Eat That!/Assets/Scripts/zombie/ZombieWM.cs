@@ -11,6 +11,7 @@ public class ZombieWM : MonoBehaviour
 
     [SerializeField] private NavMeshAgent agent;
     private GameController controller;
+    [Header("Damage")]
     [SerializeField] bool dmg = false;
     private Animator anim;
     [SerializeField] int cont;
@@ -35,7 +36,7 @@ public class ZombieWM : MonoBehaviour
 
     private void Start()
     {
-        cont = controller.fences.Count;
+        cont = controller.totalF;
         searchDestroy(controller.fences);
         searchSunflora(controller.sunfloras);
         agent.updateRotation = false;
@@ -82,6 +83,7 @@ public class ZombieWM : MonoBehaviour
 
         if(Life <= 0)
         {
+            controller.score += 150;
             Destroy(gameObject);
         }
 

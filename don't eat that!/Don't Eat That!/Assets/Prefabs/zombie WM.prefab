@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1210817841752399823}
   - component: {fileID: 1210817841752399818}
   - component: {fileID: 1210817841752399817}
-  - component: {fileID: 1210817841752399816}
   - component: {fileID: 1210817841752399828}
   - component: {fileID: 1210817841752399819}
+  - component: {fileID: 2382290306320839463}
   m_Layer: 7
   m_Name: zombie WM
   m_TagString: Untagged
@@ -105,32 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1210817841752399816
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210817841752399822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.057737827, y: -0.21898031}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 4}
-    newSize: {x: 6, y: 4}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.539691, y: 0.44583035}
-  m_EdgeRadius: 0
 --- !u!114 &1210817841752399828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +133,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1210817841752399822}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.32
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -168,7 +142,23 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
-  m_Height: 1.28
-  m_BaseOffset: 0.57
+  m_Height: 0.68
+  m_BaseOffset: 0.49
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!58 &2382290306320839463
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210817841752399822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.06, y: -0.19}
+  serializedVersion: 2
+  m_Radius: 0.27
