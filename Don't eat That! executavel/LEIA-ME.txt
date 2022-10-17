@@ -1,0 +1,13 @@
+N sei pq o jogo n quis ir com o icone embutido então deixei um icone para colocar no atalho.
+
+Deixei um atalho, só trocar o diretório dele
+Passos:
+apertar na barra de diretório onde a pasta game estiver
+copiar diretório
+colar em Propriedades->iniciar em:
+
+exemplo:
+
+
+
+
