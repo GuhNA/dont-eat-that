@@ -7,36 +7,35 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+     private string cena="MainSceneGame";
+     private string returnCena="Menu";
+    public GameObject optionsPanel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void StartGame()
     {
-        SceneManager.LoadScene("MainSceneGame");
+        SceneManager.LoadScene(cena);
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+        //Aplication.Quit();
     }
 
-    public void Credits()
+    public void ShowSobre()
     {
-        SceneManager.LoadScene("Credits");
+        optionsPanel.SetActive(true);
     }
 
-    public void Menu()
+    public void BackToMenu()
     {
-        SceneManager.LoadScene("Menu");
+        optionsPanel.SetActive(false);
     }
 
+    public void ReturnMenu()
+    {
+        SceneManager.LoadScene(returnCena);
+    }
 }

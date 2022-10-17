@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -12,29 +10,9 @@ public class GameController : MonoBehaviour
     [SerializeField] NavMeshSurface2d surf;
     [SerializeField] int _surfEvent;
     public int totalF;
-    public float timerP;
-    public float timerZ;
-    float timertemp;
-    float timertempZ;
-    int index;
-    int indexZ;
     bool _once;
     bool _end;
-
-    [Header("HUD")]
-    public List<Sprite> plant;
-    public List<Sprite> zum;
-    public Image sun;
-    public Image zombie;
-    public Text numZ;
-    public Text numSun;
-    public Text timeS;
-    public Text timeM;
-    public float deadEnd;
-    public Text scoreT;
-
-    [Header("Score")]
-    public int score;
+    
 
     #region Encapsulamento
     public List<Fence> fences
@@ -79,63 +57,57 @@ public class GameController : MonoBehaviour
         totalF = fences_.Count;
         end = true;
         once = false;
-        timertemp = timerP;
-        timertempZ = timerZ;
-        index = 0;
-        indexZ = 0;
-        score = 0;
     }
 
     void Update()
     {
-        if(end)
+        /*if(fences_.Count > (totalF - 4))
         {
-            deadEnd = Mathf.Clamp(deadEnd, 0, 600);
-            deadEnd -= Time.deltaTime;
-
-            if (fences_.Count <= (totalF - surfEvent))
+            foreach (Fence fence in fences_)
             {
-                if (!once)
+                if (fence == null)
                 {
-                    //ativando as fences como obstaculos
-                    for (int i = 0; i < fences.Count; i++)
-                    {
-                        fences[i].Mod.overrideArea = true;
-                    }
-
-                    once = true;
-
-                    //rebuildando a NavMesh "bake"
-                    surf.BuildNavMesh();
-                    once = true;
+                    fences_.Remove(fence);
                 }
-                if (sunfloras.Count <= 0)
-                {
-                    end = false;
-                }
-            }
-
-            if (deadEnd <= 0)
-            {
-                score += sunfloras.Count * 300 + (fences.Count - (totalF - surfEvent)) * 200;
-
-                end = !end;
             }
         }
         else
-        {
-            PlayerPrefs.SetInt("score", score);
-            SceneManager.LoadScene("GameOver");
-        }
-        HUDSystem();
+        {*/
 
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Menu");
-        }
+        
 
+        if(fences_.Count <= (totalF - surfEvent))
+        {
+            if (!once)
+            {
+                //ativando as fences como obstaculos
+                for (int i = 0; i < fences.Count; i++)
+                {
+                    fences[i].Mod.overrideArea = true;
+                }
+
+                once = true;
+
+                //rebuildando a NavMesh "bake"
+                surf.BuildNavMesh();
+                once = true;
+            }
+            if (sunfloras.Count <= 0)
+            {
+                end = false;
+            }
+        }
+            /*foreach (Sunflora sunflora in sunfloras_)
+            {
+                if (sunflora == null)
+                {
+                    sunfloras_.Remove(sunflora);
+                }
+            }*/
+        //}
     }
 
+    
 
     void SetFences()
     {
@@ -153,83 +125,5 @@ public class GameController : MonoBehaviour
         {
             list.Add(sunfloras[i]);
         }
-    }
-
-    void HUDSystem()
-    {
-
-        AnimHUD_P();
-        AnimHUD_Z();
-        DeadEndTime();
-
-        scoreT.text = "Score: " + score; 
-
-    }
-
-    void DeadEndTime()
-    {
-        int min;
-        int seg;
-
-        min = (int)(deadEnd / 60);
-        seg = (int)(deadEnd % 60);
-
-
-        if(seg < 10)
-        {
-            timeS.text = "0"+seg.ToString();
-        }
-        else
-        {
-            timeS.text = seg.ToString();
-        }
-        if (min < 10)
-        {
-            timeM.text = "0" + min.ToString();
-        }
-        else
-        {
-            timeM.text = min.ToString();
-        }
-    }
-
-    void AnimHUD_P()
-    {
-        //timerP precisa ser exatamente o valor da animação ( 1/samples ).
-        timerP -= Time.deltaTime;
-        //planta animada
-        if (timerP <= 0)
-        {
-            sun.sprite = plant[index];
-            index++;
-            timerP = timertemp;
-        }
-
-        if (index > (plant.Count-1))
-        {
-            index = 0;
-        }
-
-        numSun.text = sunfloras.Count.ToString();
-    }
-
-    void AnimHUD_Z()
-    {
-        int numberZ = FindObjectsOfType<ZombieWM>().Length;
-        timerZ -= Time.deltaTime;
-        //Zumbi animada
-        if (timerZ <= 0)
-        {
-            zombie.sprite = zum[indexZ];
-            indexZ++;
-            timerZ = timertempZ;
-        }
-
-        if (indexZ > (zum.Count-1))
-        {
-            indexZ = 0;
-        }
-
-       numZ.text = numberZ.ToString();
     }
 }

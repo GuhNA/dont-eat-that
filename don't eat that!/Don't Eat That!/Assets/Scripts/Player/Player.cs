@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,17 +11,22 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float runspeed;
     [SerializeField] private float radius;
-    private bool lookingRight;
     private float tempSpeed;
     private Vector2 direction_;
     private bool isRunning_;
     private bool isRolling_;
     private bool isAttacking_;
-    private int handlingOBJ_;
+    private int handlingOBJ;
     [Header("References")]
-    [SerializeField] private GameObject shotPosition;
-    [SerializeField] private GameObject bullet;
+    //[SerializeField] private GameObject shotPosition;
+    //[SerializeField] private GameObject bullet;
     [SerializeField] private LayerMask enemyLayer;
+
+    private bool isPaused;
+
+    //Paineis e Menu
+    public GameObject pausePanel;
+    public string cena = "MenuManager";
 
     #region encapsulamento
     public Vector2 direction
@@ -45,11 +52,6 @@ public class Player : MonoBehaviour
         get { return isAttacking_; }
         set { isAttacking_ = value; }
     }
-    public int handlingOBJ
-    {
-        get { return handlingOBJ_; }
-        set { handlingOBJ_ = value; }
-    }
     #endregion
 
     void Start()
@@ -57,18 +59,45 @@ public class Player : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         tempSpeed = speed;
         handlingOBJ = 1;
-        lookingRight = true;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Running();
-        Rolling();
-        onInput();
-        toolSelect();
-        //Axe();
+        if (!isPaused){
+            Running();
+            Rolling();
+            onInput();
+            Axe();
+        }
+        
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseScreen();
+        }
+
+    }
+
+    void PauseScreen()
+    {
+        if (isPaused)
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     private void FixedUpdate()
@@ -80,27 +109,27 @@ public class Player : MonoBehaviour
 
     void onAttack()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.Find("melee").position, radius, enemyLayer);
+        Collider2D hit = Physics2D.OverlapCircle(transform.Find("melee").position, radius, enemyLayer);
 
-        if (hits != null)
+        if (hit)
         {
-            foreach(Collider2D hit in hits)
-            {
-                hit.GetComponent<ZombieWM>().life--;
-            }
+            hit.GetComponent<ZombieWM>().life--;
         }
 
     }
 
     void Axe()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (handlingOBJ == 1)
         {
-            isAttacking_ = true;
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isAttacking_ = false;
+            if (Input.GetMouseButtonDown(0))
+            {
+                isAttacking_ = true;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                isAttacking_ = false;
+            }
         }
     }
 
@@ -111,10 +140,6 @@ public class Player : MonoBehaviour
     void onInput()
     {
         direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if((direction.x < 0 && lookingRight) || (direction.x > 0 && !lookingRight))
-        {
-            lookingRight = !lookingRight;
-        }
     }
 
     void onMove()
@@ -148,53 +173,32 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Shooting()
+    /*void Shooting()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject projectile = Instantiate(bullet, shotPosition.transform.position, transform.rotation);
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        direction_ = new Vector2(mousePos.x - transform.position.x, mousePos.y - transform.position.y);
+        transform.up = direction_;
 
-            if(lookingRight)
-            {
-                projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(10, 0);
-            }
-            else
-            {
-                projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-10, 0);
-            }
+        if(Input.GetMouseButtonDown(0))
+        {
+            Instantiate(bullet, shotPosition.transform.position, transform.rotation);
         }
-    }
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            transform.Translate(0, speed * Time.deltaTime, 0);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(0, -speed * Time.deltaTime, 0);
+        }
+    }*/
 
     private void OnDrawGizmosSelected()
     {
 
         Gizmos.DrawWireSphere(transform.Find("melee").position, radius);
-    }
-
-    void toolSelect()
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            //lembrando q cada letra é um int então sabendo q alpha 0
-            //é 48, 48+1 = 49 resultando em Alpha1
-            if (Input.GetKeyDown(KeyCode.Alpha0 + i))
-            {
-                {
-                    handlingOBJ = i;
-
-                }
-            }
-        }
-
-        switch (handlingOBJ)
-        {
-            case 1:
-                Axe();
-                break;
-            default:
-                Shooting();
-                break;
-        }
     }
 }
     #endregion
